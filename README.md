@@ -1,36 +1,26 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CoopReady AI
 
-## Getting Started
+Friendly, bilingual cooperative-education preparation frontend for Thai university students. It ships in explicitly labeled Demo Mode and does not claim real AI, authoritative academic answers, microphone capture, or resume parsing without a backend.
 
-First, run the development server:
+## Requirements and setup
+
+Node.js 20.9+ and npm. Copy `.env.example` to `.env.local` when connecting FastAPI.
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`. Production checks: `npm run lint` and `npm run build`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Routes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+`/` workspace home · `/faq` academic chat · `/resume` resume intake/results · `/interview` demo voice flow · `/interview/results` demo coaching · `/history` privacy-first history.
 
-## Learn More
+## Integration
 
-To learn more about Next.js, take a look at the following resources:
+The typed boundary is in `src/lib/api.ts`; shared contracts are in `src/lib/types.ts`. See `docs/API_CONTRACT.md` and `docs/FRONTEND_HANDOFF.md`. Keep `NEXT_PUBLIC_DEMO_MODE=true` until approved sources and services are deployed.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Privacy and factual safety
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+No raw resume, transcript, or private conversation is stored by this frontend. FAQ intentionally shows a no-verified-answer state until an approved faculty/CO301 source is integrated. The intent dataset must never provide authoritative content.
